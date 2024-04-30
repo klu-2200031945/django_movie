@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Feedback Form</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    body {
+      background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRksjyRaCGVhe8bHDxH83S9xpNAfqNZidfSYr4IuNiQI8mhQnAHSQQVwFCYPFzL4IfzE4E&usqp=CAU');
+      background-size: cover;
+      font-family: Arial, sans-serif;
+    }
+    h2 {
+      color: #fff;
+      text-align: center;
+      margin-top: 20px;
+    }
+    .form-group label {
+      font-weight: bold;
+      color: #fff;
+    }
+    .form-check-input {
+      margin-top: 8px;
+    }
+    textarea {
+      resize: vertical;
+    }
+    button[type="submit"] {
+      background-color: #28a745;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-size: 16px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button[type="submit"]:hover {
+      background-color: #218838;
+    }
+    /* Custom popup message style */
+    .popup {
+      display: none;
+      position: fixed;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      background-color: rgba(0, 0, 0, 0.7);
+      color: white;
+      padding: 20px;
+      border-radius: 5px;
+      z-index: 1000;
+    }
+    .popup.visible {
+      display: block;
+    }
+    /* Custom style for the feedback form box */
+    .feedback-box {
+      background-color: rgba(0, 0, 0, 0.5);
+      padding: 20px;
+      border-radius: 10px;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <div class="feedback-box">
+    <h2>Feedback</h2>
+    <div class="mb-4 small" style="color: #fff;">
+      Please provide your feedback in the form below
+    </div>
+    <form name="feedback_form" id="feedback_form" method="post" action="/dashboard/">
+      {% csrf_token %}
+      <div class="form-group">
+        <label>How do you rate your overall experience?</label>
+        <div class="mb-3 d-flex flex-row py-1">
+          <div class="form-check mr-3">
+            <input class="form-check-input" type="radio" name="rating" id="rating_bad" value="bad">
+            <label class="form-check-label" for="rating_bad">
+              Bad
+            </label>
+          </div>
+          <div class="form-check mx-3">
+            <input class="form-check-input" type="radio" name="rating" id="rating_good" value="good">
+            <label class="form-check-label" for="rating_good">
+              Good
+            </label>
+          </div>
+          <div class="form-check mx-3">
+            <input class="form-check-input" type="radio" name="rating" id="rating_excellent" value="excellent">
+            <label class="form-check-label" for="rating_excellent">
+              Excellent!
+            </label>
+          </div>
+        </div>
+      </div>
+      <div class="form-group mb-4">
+        <label class="form-label" for="feedback_comments">Comments:</label>
+        <textarea class="form-control" required rows="6" name="comments" id="feedback_comments"></textarea>
+      </div>
+      <div class="row">
+        <div class="col">
+          <label class="form-label" for="feedback_name" style="color: #fff;">Your Name:</label>
+          <input type="text" required name="name" class="form-control" id="feedback_name"/>
+        </div>
+        <div class="col mb-4">
+          <label class="form-label" for="feedback_email" style="color: #fff;">Email:</label>
+          <input type="email" name="email" required class="form-control" id="feedback_email"/>
+        </div>
+      </div>
+
+      <button type="submit" class="btn btn-success btn-lg">Post</button>
+    </form>
+  </div>
+</div>
+
+<!-- Popup message -->
+<div class="popup" id="popupMessage">
+  <p>Posted successfully!</p>
+</div>
+
+<script>
+  // Get the form and popup message element
+  const feedbackForm = document.getElementById('feedback_form');
+  const popupMessage = document.getElementById('popupMessage');
+
+  // Add event listener to the form submission
+  feedbackForm.addEventListener('submit', function(event) {
+    // Prevent the default form submission
+    event.preventDefault();
+
+    // Show the popup message
+    popupMessage.classList.add('visible');
+
+    // Hide the popup message after 3 seconds
+    setTimeout(function() {
+      popupMessage.classList.remove('visible');
+    }, 3000);
+
+    // Submit the form after showing the popup (optional)
+    setTimeout(function() {
+      feedbackForm.submit();
+    }, 3100);
+  });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,66 @@
+/* Navbar Styles */
+.navbar {
+    background-color: #333; /* Dark background color */
+    border-radius: 0;
+    min-height: 80px;
+}
+
+.navbar-inverse .navbar-brand {
+    color: #a3081f; /* Brand text color */
+    font-size: 24px; /* Increased font size */
+    font-family: 'Arial', sans-serif; /* Fallback font family */
+    font-style: italic;
+    font-weight: bold;
+}
+
+.navbar-inverse .navbar-nav>li>a {
+    color: #fff; /* Nav links color */
+    font-size: 18px;
+}
+
+/* Navbar Hover Effects */
+.navbar-nav>li>a:hover {
+    color: #ff5733; /* Reddish color on hover */
+}
+
+
+
+/* Page Content Styles */
+.container-fluid {
+    margin-top: 20px; /* Increased margin top */
+}
+
+h2 {
+    margin-left: 20px; /* Reduced margin left */
+}
+
+/* Footer Styles */
+.footer {
+    background-color: #333; /* Dark background color */
+    color: #fff; /* Text color */
+    text-align: center;
+    padding: 20px 0; /* Added padding top and bottom */
+    width: 100%;
+}
+
+/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Box model property */
+}
+
+html, body {
+    height: 100%;
+    font-family: 'Arial', sans-serif; /* Default font family */
+}
+
+.wrapper {
+    min-height: 100%;
+    height: auto !important; /* Fallback for browsers that do not support flexbox */
+    margin-bottom: -155px; /* Negative margin to account for footer height */
+}
+
+.push, .footer {
+    height: 155px; /* Footer height */
+}

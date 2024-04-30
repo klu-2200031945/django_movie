@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Cine Recommender</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <style>
+    /* Custom CSS for padding and styling */
+    body {
+      font-family: Arial, sans-serif;
+    }
+    .register-body {
+      background: url('https://img.freepik.com/free-vector/gradient-technological-background_23-2148884155.jpg?w=996&t=st=1714076214~exp=1714076814~hmac=8a841b708adfb3334e910f0d9d37165eb7314fcd85e50684e3e8bacac413d9bf') no-repeat center center fixed;
+      background-size: cover;
+      color: #fff;
+      text-shadow: 0 1px 3px rgba(0,0,0,.5);
+    }
+    .navbar-inverse {
+      background-color: #333;
+      border: none;
+      border-radius: 0;
+    }
+    .navbar-inverse .navbar-nav > li > a {
+      color: #fff;
+    }
+    .sidenav {
+      padding-top: 20px;
+      background-color: #f0f0f0;
+    }
+    .sidenav h2 {
+      color: #333;
+      font-size: 28px;
+      margin-bottom: 30px;
+    }
+    .nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus {
+      background-color: #020299;
+    }
+    .well {
+      background-color: #fff;
+      color: #333;
+      padding: 20px;
+      margin-bottom: 20px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    .well h4 {
+      color: #020299;
+      font-weight: bold;
+      margin-top: 0;
+    }
+  </style>
+</head>
+<body class="register-body">
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Cine Recommender</a>
+    </div>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container-fluid">
+  <div class="row content">
+    <div class="col-sm-3 sidenav">
+      <h2>CINE RECOMMENDER</h2>
+      <ul class="nav nav-pills nav-stacked">
+        <li class="active"><a href="#">Dashboard</a></li>
+        <li><a href="{% url 'about' %}">About</a></li>
+        <li><a href="#" onclick="redirectToHomePage()">Movies</a></li>
+        <!-- Add the Feedback section -->
+        <li><a href="{% url 'feedback' %}">Feedback</a></li>
+      </ul>
+    </div>
+    <div class="col-sm-9">
+      <div class="well">
+        <h4>Dashboard</h4>
+        <p>Welcome to Cine Recommender</p>
+      </div>
+      <div class="row">
+        <div class="col-sm-3">
+          <div class="well">
+            <h4>Movie Languages</h4>
+            <p>Telugu, Hindi, Tamil, English</p>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="well">
+            <h4>Recommendations</h4>
+            <p>Entertainment</p>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="well">
+            <h4>Ratings</h4>
+            <p>*****</p>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="well">
+            <h4>Movie Count</h4>
+            <p>9</p>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-4">
+          <div class="well">
+            <h4>Action/Drama</h4>
+            <p>Adventure/Fantasy</p>
+            <p>Comedy/Romance</p>
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="well">
+            <h4>Drama/Thriller</h4>
+            <p>Fantasy/Romance</p>
+            <p>Historical/Drama</p>
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="well">
+            <h4>Mystery/Thriller</h4>
+            <p>Sci-Fi/Thriller</p>
+            <p>War/Action</p>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-8">
+          <div class="well">
+            <h4>Western/Drama</h4>
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="well">
+            <h4>Action/Sci-Fi</h4>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  function redirectToHomePage() {
+    window.location.href = "/";
+  }
+</script>
+</body>
+</html>

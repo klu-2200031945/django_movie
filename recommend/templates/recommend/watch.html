@@ -1,0 +1,39 @@
+{% extends 'recommend/base.html'%}
+{% block body %}
+
+<style>
+    /* CSS for setting background image */
+    body {
+        background-image: url('https://img.freepik.com/free-vector/red-triangular-shape-line-pattern-background_1409-1893.jpg');
+        background-size: cover; /* Ensure the background image covers the entire viewport */
+    }
+     h2 {
+        color: #216fff; /* blue color */
+    }
+</style>
+
+<h2>My Ratings</h2>
+<hr>
+<br>
+<!-- Movie list -->
+<div class="row">
+    {% if movies %}
+    {% for movie in movies %}
+        <div class="col-sm-2 col-md-2 ">
+            <div class="thumbnail">
+                <h4>{{movie.title}}</h4>
+                <a href="{% url 'detail' movie.id %}">
+                    <img src="{{ movie.movie_logo.url}}" class="img-responsive">
+                </a>
+                <h5>{{movie.genre}}</h5>
+            </div>
+        </div>
+    {% endfor %}
+    {% else %}
+        <div class="alert alert-danger">
+            <strong>Sorry!</strong> No movies in your list.
+        </div>
+    {% endif %}
+</div>
+
+{% endblock %}
